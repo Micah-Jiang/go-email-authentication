@@ -1,12 +1,11 @@
 package service
 
 import (
-	"github.com/gin-gonic/gin"
 	email_utils "go-email-identify/pkg/utils"
 	"net/http"
 )
 
-func SendEmail(c *gin.Context) (int, string) {
-	email_utils.SendMessage()
+func SendEmail(email string) (int, string) {
+	email_utils.SendMessage(email)
 	return http.StatusOK, "send email success"
 }
