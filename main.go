@@ -15,6 +15,16 @@ func main() {
 func setupRouter() *gin.Engine {
 	router := gin.Default()
 
+	router.POST("/user/register", func(c *gin.Context) {
+		var user m.UserDto
+		// ShouldBind()会根据请求的Content-Type自行选择绑定器
+		if err := c.ShouldBind(&user); err == nil {
+			s.Register(user)
+		} else {
+			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		}
+	})
+
 	router.GET("/user/login", func(c *gin.Context) {
 		var login m.UserDto
 		if err := c.ShouldBind(&login); err == nil {

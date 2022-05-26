@@ -60,3 +60,49 @@ func GetInterfaceToString(value interface{}) string {
 
 	return key
 }
+
+func GetInterfaceToInt(value interface{}) int {
+	var key int
+	switch value.(type) {
+	case uint:
+		key = int(value.(uint))
+		break
+	case int8:
+		key = int(value.(int8))
+		break
+	case uint8:
+		key = int(value.(uint8))
+		break
+	case int16:
+		key = int(value.(int16))
+		break
+	case uint16:
+		key = int(value.(uint16))
+		break
+	case int32:
+		key = int(value.(int32))
+		break
+	case uint32:
+		key = int(value.(uint32))
+		break
+	case int64:
+		key = int(value.(int64))
+		break
+	case uint64:
+		key = int(value.(uint64))
+		break
+	case float32:
+		key = int(value.(float32))
+		break
+	case float64:
+		key = int(value.(float64))
+		break
+	case string:
+		key, _ = strconv.Atoi(value.(string))
+		break
+	default:
+		key = value.(int)
+		break
+	}
+	return key
+}

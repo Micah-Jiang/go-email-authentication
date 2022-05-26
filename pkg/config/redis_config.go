@@ -8,8 +8,8 @@ import (
 
 func ConnectRedis() (redis.Conn, error) {
 	utils.Logger.Info().Msg("start to get redis config props")
-	host := utils.GetInterfaceToString(utils.Get("REDIS_HOST"))
-	port := utils.GetInterfaceToString(utils.Get("REDIS_PORT"))
+	host := utils.GetInterfaceToString(utils.Get("redis.redis.host"))
+	port := utils.GetInterfaceToString(utils.Get("redis.redis.port"))
 
 	c, err := redis.Dial("tcp", host+":"+port)
 	if err != nil {
@@ -18,8 +18,4 @@ func ConnectRedis() (redis.Conn, error) {
 	}
 
 	return c, nil
-}
-
-func hello(name string) string {
-	return name
 }
