@@ -1,7 +1,7 @@
 package service
 
 import (
-	"go-email-identify/pkg/model"
+	"go-email-authentication/pkg/model"
 	"net/http"
 )
 

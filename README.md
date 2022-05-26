@@ -1,4 +1,4 @@
-# go-email-identify
+# go-email-authentication
 ## 1. introduction
 The system of user login email authentication based on go lang
 

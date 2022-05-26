@@ -1,11 +1,14 @@
 package service
 
 import (
-	email_utils "go-email-identify/pkg/utils"
+	"go-email-authentication/pkg/utils"
 	"net/http"
 )
 
-func SendEmail(email string) (int, string) {
-	email_utils.SendMessage(email)
+func SendEmail(username, email string) (int, string) {
+	err := utils.SendMessage(username, email)
+	if err != nil {
+		return http.StatusInternalServerError, "send email failed"
+	}
 	return http.StatusOK, "send email success"
 }

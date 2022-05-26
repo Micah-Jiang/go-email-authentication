@@ -2,8 +2,8 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	m "go-email-identify/pkg/model"
-	s "go-email-identify/pkg/service"
+	m "go-email-authentication/pkg/model"
+	s "go-email-authentication/pkg/service"
 	"net/http"
 )
 
@@ -31,7 +31,8 @@ func setupRouter() *gin.Engine {
 
 	router.GET("/user/sendCode", func(c *gin.Context) {
 		user_email := c.Query("email")
-		status, resp := s.SendEmail(user_email)
+		username := c.Query("username")
+		status, resp := s.SendEmail(username, user_email)
 		if status == http.StatusOK {
 			c.String(http.StatusOK, resp)
 		} else {
