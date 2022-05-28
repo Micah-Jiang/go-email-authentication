@@ -11,6 +11,8 @@ for another, send code to user email, store code to redis, set the expired time 
 - mvc framework: gin
 - language: go lang
 - orm framework: gorm
+- database: mysql
+- cache: redis
 
 ## 4. feature
 ### (1) 针对password采用BCrypt算法进行加密
