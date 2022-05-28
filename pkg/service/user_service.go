@@ -55,6 +55,12 @@ func Register(userDto dto.UserDto) (int, string) {
 		return http.StatusExpectationFailed, "register failed."
 	}
 
+	// delete smsCode cache
+	_, err = r.Do("Delete", "sms:code:"+userDto.Email)
+	if err != nil {
+		return http.StatusExpectationFailed, "register failed."
+	}
+
 	smsCode := strings.Split(fmt.Sprintf("%s", smsInfo), "_")[0]
 	if smsCode != userDto.SmsCode {
 		return global.SmsCodeException, global.Msg[global.SmsCodeException]

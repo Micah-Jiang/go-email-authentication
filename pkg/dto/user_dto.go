@@ -3,9 +3,9 @@ package dto
 import "reflect"
 
 type UserDto struct {
-	Username string `form:"username" json:"username" binding:"required"`
-	Password string `form:"password" json:"password" binding:"required"`
-	Email    string `form:"email" json:"email" binding:"required"`
+	Username string `form:"username" json:"username"`
+	Password string `form:"password" json:"password"`
+	Email    string `form:"email" json:"email"`
 	SmsCode  string `form:"smsCode" json:"smsCode"`
 }
 
