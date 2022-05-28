@@ -9,10 +9,10 @@ import (
 )
 
 type SysUser struct {
-	id          int       `gorm:"primaryKey"`
-	Username    string    `gorm:"index" json:"username" binding:"required"`
-	Password    string    `json:"password" binding:"required"`
-	Email       string    `gorm:"index" json:"email" binding:"required"`
+	id          int    `gorm:"primaryKey"`
+	Username    string `gorm:"index"`
+	Password    string
+	Email       string    `gorm:"index"`
 	CreatedTime time.Time `gorm:"autoCreateTime"`
 }
 
