@@ -30,7 +30,7 @@ func SetSendPhoneCodeCache(email, randomCode string) error {
 		return err
 	}
 
-	var currentTime string = fmt.Sprintf("%s", timestamppb.Now())
+	currentTime := fmt.Sprintf("%s", timestamppb.Now())
 	if smsTime != nil {
 		timeNow, _ := strconv.ParseInt(currentTime, 10, 64)
 		cacheTimeStr := strings.Split(fmt.Sprintf("%s", smsTime), "_")[1]
