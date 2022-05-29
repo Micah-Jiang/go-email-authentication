@@ -25,8 +25,8 @@ func Login(userDto dto.UserDto, c *gin.Context) {
 	}
 
 	// 2. check password
-	err := bcrypt.CompareHashAndPassword([]byte(userDto.Password), []byte(sysUser.Password))
-	if err != nil {
+	err2 := bcrypt.CompareHashAndPassword([]byte(sysUser.Password), []byte(userDto.Password))
+	if err2 != nil {
 		c.JSON(http.StatusOK, gin.H{
 			"code": global.PasswordNotCorrect,
 			"msg":  global.Msg[global.PasswordNotCorrect],
@@ -56,7 +56,7 @@ func Register(userDto dto.UserDto) (int, string) {
 	}
 
 	// delete smsCode cache
-	_, err = r.Do("Delete", "sms:code:"+userDto.Email)
+	_, err = r.Do("Del", "sms:code:"+userDto.Email)
 	if err != nil {
 		return http.StatusExpectationFailed, "register failed."
 	}

@@ -24,7 +24,7 @@ func SendMessage(receiverName, receiverEmail string) error {
 	message := `
     <p> Hey %s,</p>
 	
-		<p style="text-indent:2em">%s, the verify code of login, it's expired after 1 minute.</p> 
+		<p style="text-indent:2em"><h2>%s</h2>, the verify code of your account, it will be expired after 1 minute.</p> 
 
 	<p style="text-indent:2em">Best wishes!</p>
 	`
